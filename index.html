@@ -1,0 +1,62 @@
+<html lang="ru">
+	<head>
+		<title>Список дел</title>
+		<link rel="stylesheet" href="style.css">
+		
+		
+	</head>
+	<body>
+		<div id="app">
+		<div id="fixed-container">
+			<div id="list">
+				<h2>Список дел</h2>
+					<div id="list-items"><h4 id="list-none">Список дел пуст...</h4>
+
+
+						<div class="list-item">
+
+
+
+							<div><button>x</button>  <!--кнопка удаления дела--></div> <!--название дела-->
+
+
+							<div></div> <!--описание дела-->
+
+
+
+
+
+						</div>
+					</div>
+			</div>
+
+
+
+
+
+			<div id="add-delo">
+				<h2>Добавить новое дело</h2>
+				<div name="" id="form">
+					<form>
+						<h4>* Название</h4>
+						<input type="text" id="name-delo" name="" v-model="inputName"><p>
+						<h4>{{ inputName }}</h4>
+						<h4>* Описание</h4>
+						<textarea id="opisanie-delo" name="" autofocus=""></textarea><p><p>
+						<!--<h4>Все поля должны быть заполнены</h4>-->
+					</form>
+					<button id="button">Добавить дело</button>
+
+
+
+
+
+				</div>
+
+			</div>
+		</div>
+		</div>
+		<script src="https://unpkg.com/vue@next"></script>
+		<script src="app.js"></script>
+	</body>
+</html>
