@@ -7,8 +7,23 @@ const App = {
         }
     },
     methods: {
-        inputValue(event) {
-            this.inputName = event.target.value
+        addTask() {
+            this.notes.push({
+                name: this.inputName,
+                opisanie: this.inputOpisanie
+            });
+            this.inputName='';
+            this.inputOpisanie='';
+            console.log(this.notes);
+        },
+        removeTask(index) {
+            this.notes.splice(index, 1)
+        },
+        isNotFull() {
+            if (this.inputName === '' || this.inputOpisanie === ''){
+                console.log(this.inputName, this.inputOpisanie);
+                return true
+            };
         }
     }
 }

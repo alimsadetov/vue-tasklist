@@ -10,17 +10,17 @@
 		<div id="fixed-container">
 			<div id="list">
 				<h2>Список дел</h2>
-					<div id="list-items"><h4 id="list-none">Список дел пуст...</h4>
+					<div id="list-items"><h4 id="list-none" v-if="notes.length === 0">Список дел пуст...</h4>
 
 
-						<div class="list-item">
+						<div class="list-item" v-for="(note, index) in notes">
 
 
 
-							<div><button>x</button>  <!--кнопка удаления дела--></div> <!--название дела-->
+							<div><button @click="removeTask(index)">x</button>{{ note.name }}</div> <!--название дела-->
 
 
-							<div></div> <!--описание дела-->
+							<div>{{ note.opisanie }}</div> <!--описание дела-->
 
 
 
@@ -40,12 +40,11 @@
 					<form>
 						<h4>* Название</h4>
 						<input type="text" id="name-delo" name="" v-model="inputName"><p>
-						<h4>{{ inputName }}</h4>
 						<h4>* Описание</h4>
-						<textarea id="opisanie-delo" name="" autofocus=""></textarea><p><p>
-						<!--<h4>Все поля должны быть заполнены</h4>-->
+						<textarea id="opisanie-delo" name="" autofocus="" v-model="inputOpisanie"></textarea><p><p>
+						<h4 v-if="isNotFull()">Все поля должны быть заполнены</h4>
 					</form>
-					<button id="button">Добавить дело</button>
+					<button id="button" @click="addTask">Добавить дело</button>
 
 
 
